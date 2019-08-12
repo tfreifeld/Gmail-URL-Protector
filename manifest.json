@@ -1,0 +1,42 @@
+{
+  "name": "Gmail URL Protector",
+  "manifest_version": 2,
+  "description": "Detects potential hazardous URLs in incoming mails on Gmail",
+  "version": "1.0",
+  "permissions": [
+    "identity",
+    "storage",
+    "https://www.virustotal.com/"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://mail.google.com/*",
+        "http://mail.google.com/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "barrier.js",
+      "base64.js",
+      "quoted-printable.js",
+      "jquery-3.4.1.js",
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAovXuO9y0MsfKnBvaLvcRW1oL90seUh7PGyQ01J4FOO8uCUZOIVL0KQAeAl+9NCQz25z+fvllKFCbZ33YTkO1lRTTY42sy/By6cX+wgpVDOpQghD4syumCBj2mC9Uip2gFgtJrKkG1Vo6fSG3/yO/r72C8Re2VZrDQL+ENhHBIeI+U/ezUjgUdHVdApBy78lDp+PyY4tu1ogi+Ac+Ge6kOYQUHiKHc0t2bqO/EHGsFOQArv/bv4zFmo0uz0MmexzQmB+xcLYSLwMpqTFyc3SCINza/4l4mx/xTFbdGIDlNpBtFbk4vOXK9zdMKy2DyoimHEaHfnijIhB8FCq7Gyoo4wIDAQAB",
+  "oauth2": {
+    "client_id": "757338131120-61qf134602g25lelsf0t7odplr1e6l8h.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/gmail.readonly",
+      "https://www.googleapis.com/auth/gmail.insert",
+      "https://www.googleapis.com/auth/gmail.modify"
+    ]
+  },
+  "page_action": {}
+}
